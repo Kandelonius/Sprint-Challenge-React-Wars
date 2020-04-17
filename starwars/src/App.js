@@ -10,7 +10,7 @@ const url='https://swapi.py4e.com/api/people/'
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
-  const [page, setPage] = useState('1')
+  const [page, setPage] = useState(1)
   const [characterData, setCharacterData] = useState([])
   useEffect(() => {
     axios.get(`${url}?page=${page}`)
@@ -30,7 +30,7 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="Header">Characters</h1>
-      <button onClick=''>Click for next list!</button>
+      <button onClick={function(){setPage(page+1)}}>Click for next list!</button>
         <Container>
         {characterData.map((event) => <Character key={event.name} character={event}/>)}
         {/* <Character characterData={characterData}/> */}
