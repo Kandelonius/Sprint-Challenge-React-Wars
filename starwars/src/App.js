@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import './App.css';
 import axios from 'axios'
 import styled from 'styled-components'
+import Container from "./appStyles"
 import Character from './components/Character'
 
 const url = 'https://swapi.py4e.com/api/people/'
@@ -29,8 +30,10 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="Header">Characters</h1>
-      {characterData.map((event) => <Character key={event.name} character={event}/>)}
-      {/* <Character characterData={characterData}/> */}
+        <Container>
+        {characterData.map((event) => <Character key={event.name} character={event}/>)}
+        {/* <Character characterData={characterData}/> */}
+      </Container>
     </div>
   );
 }
